@@ -19,7 +19,7 @@ app.use(
 	session({
 		secret: 'this is the default passphrase',
 		resave: true,
-		saveUninitialized: true
+		saveUninitialized: false
 	})
 )
 
