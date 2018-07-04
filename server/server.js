@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const uuid = require('uuid/v4')
+const cookieParser = require('cookie-parser')
 const path = require('path')
 const session = require('express-session')
 const passport = require('./passport')
@@ -8,18 +10,25 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 // ===== Middleware ====
-app.use(morgan('dev'))
+//app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
 		extended: false
 	})
 )
 app.use(bodyParser.json())
+app.use(cookieParser());
 app.use(
 	session({
+		genid: function(req) {
+			return uuid()
+		},
 		secret: 'this is the default passphrase',
-		resave: true,
-		saveUninitialized: false
+		resave: false,
+		saveUninitialized: false,
+		cookie:{
+			_expires:360000
+		}
 	})
 )
 
