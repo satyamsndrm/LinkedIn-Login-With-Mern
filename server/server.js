@@ -25,10 +25,7 @@ app.use(
 		},
 		secret: 'this is the default passphrase',
 		resave: false,
-		saveUninitialized: false,
-		cookie:{
-			_expires:360000
-		}
+		saveUninitialized: false
 	})
 )
 

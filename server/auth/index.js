@@ -23,8 +23,8 @@ router.get('/user', (req, res, next) => {
 	console.log(req.cookies)
 	//res.clearCookie('connect.sid');
 	console.log('===== END OF COOKIES!!======')
-	if (req.user) {
-		return res.json({ status:true , user: req.user })
+	if (req.session.passport.user) {
+		return res.json({ status:true , user: req.session.passport.user })
 	} else {
 		return res.json({status:false, user: null })
 	}

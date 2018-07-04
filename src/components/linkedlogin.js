@@ -15,7 +15,6 @@ export default class Login extends React.Component{
     }
     componentWillMount(){
         axios.get('/auth/user').then((res)=>{
-            //console.log(res);
             if(res.data.status){
                 this.setState({
                     isLoggedin:true,
