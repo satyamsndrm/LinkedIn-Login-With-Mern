@@ -3,7 +3,7 @@ const LinkedInStrategy= require('passport-linkedin-oauth2').Strategy;
 const strategy = new LinkedInStrategy({
 			clientID: '81gzpwueo5c948',
 			clientSecret: 'jMkyd1JuNs83ItL8',
-			callbackURL: "http://localhost:3000/auth/linkedin/callback",
+			callbackURL: "https://filipip.herokuapp.com/auth/linkedin/callback",
 			scope: [ 'r_basicprofile', 'r_emailaddress']
 		},
 		function(token, tokenSecret, profile, done) {
